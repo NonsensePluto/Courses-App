@@ -1,7 +1,8 @@
 package com.example.coursesapp.domain.usecases
 
+import com.example.coursesapp.domain.models.UserModel
 import com.example.coursesapp.domain.repository.LoginRepository
 
 class LoginUseCase(private val repository: LoginRepository) {
-    operator fun invoke(email: String, password: String) = repository.login(email, password)
+    operator fun invoke(email: String, password: String): UserModel = repository.login(email, password)
 }
