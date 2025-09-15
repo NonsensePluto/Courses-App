@@ -5,7 +5,7 @@
     <string name="defaultEmailTxt">example@gmail.com</string>
     <string name="enterPasswordTxt">Введите пароль</string>
     <string name="passwordTxt">Пароль</string>
-    <string name="noAccountTxt">Нету аккаунта?</string>
+    <string name="noAccountTxt">Нету аккаунта? </string>
     <string name="registrationTxt">Регистрация</string>
     <string name="forgotPasswordTxt">Забыл пароль</string>
 </resources>
