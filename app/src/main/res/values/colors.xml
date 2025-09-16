@@ -7,7 +7,9 @@
     <color name="light_orange">#FFF98509</color>
     <color name="orange">#FFF95D0D</color>
     <color name="green">#FF12B956</color>
+    <color name="dark_gray">#FF24252A</color>
     <color name="light_gray">#FF32333A</color>
     <color name="hint_text_color">#FF666666</color>
     <color name="stroke">#FF4D555E</color>
+    <color name="glass">#FF32333A</color>
 </resources>
