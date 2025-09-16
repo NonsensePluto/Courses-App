@@ -140,7 +140,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDescription">
 
-            <!-- Цена -->
+
+            <!-- Кнопка "Подробнее" -->
+
             <TextView
                 android:id="@+id/tvPrice"
                 android:layout_width="0dp"
@@ -150,9 +152,8 @@
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                tools:ignore="HardcodedText"/>
+                tools:ignore="HardcodedText" />
 
-            <!-- Кнопка "Подробнее" -->
             <LinearLayout
                 android:id="@+id/btnDetails"
                 android:layout_width="wrap_content"
