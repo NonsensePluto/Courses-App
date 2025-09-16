@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1F1F1F"
+    android:background="@color/dark"
     android:padding="24dp">
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/loginTxt"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/emailTxt"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle"
@@ -32,10 +32,10 @@
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="48dp"
         android:hint="@string/defaultEmailTxt"
-        android:textColorHint="#666666"
-        android:textColor="#F2F2F3"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/white"
         android:background="@drawable/edit_text_background"
         android:paddingHorizontal="16dp"
         android:inputType="textEmailAddress"
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/passwordTxt"
-        android:textColor="#F2F2F3"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etEmail"
@@ -58,10 +58,10 @@
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="0dp"
-        android:layout_height="56dp"
+        android:layout_height="48dp"
         android:hint="@string/enterPasswordTxt"
-        android:textColorHint="#666666"
-        android:textColor="#FFFFFF"
+        android:textColorHint="@color/hint_text_color"
+        android:textColor="@color/white"
         android:background="@drawable/edit_text_background"
         android:paddingHorizontal="16dp"
         android:inputType="textPassword"
@@ -73,15 +73,16 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:text="@string/loginTxt"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/green_button_background"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/loginTxt"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPassword"
-        android:layout_marginTop="32dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPassword" />
 
     <LinearLayout
         android:id="@+id/accountText"
@@ -98,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/noAccountTxt"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             android:textSize="14sp" />
 
         <TextView
@@ -106,8 +107,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/registrationTxt"
-            android:textColor="#12B956"
-            android:textSize="14sp" />
+            android:textColor="@color/green"
+            android:textSize="14sp"
+            android:layout_marginStart="4dp"/>
 
     </LinearLayout>
 
@@ -116,21 +118,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/forgotPasswordTxt"
-        android:textColor="#12B956"
+        android:textColor="@color/green"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/accountText"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"/>
 
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        app:dividerColor="@color/stroke"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="32dp"/>
 
     <LinearLayout
         android:id="@+id/llSocialButtons"
@@ -143,24 +146,24 @@
         app:layout_constraintTop_toBottomOf="@id/divider"
         android:layout_marginTop="32dp">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <ImageButton
             android:background="@drawable/vk_button_background"
             android:id="@+id/btnVk"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:text="VK"
+            android:src="@drawable/vk_icon"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"
             android:layout_marginEnd="8dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <ImageButton
             android:id="@+id/btnOk"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:text="OK"
+            android:src="@drawable/ok_icon"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"
