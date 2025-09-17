@@ -63,4 +63,12 @@ dependencies {
     implementation(libs.retrofit2GsonConverter)
     implementation(libs.okhttp3)
     implementation(libs.okhttp3Logging)
+
+    //AdapterDelegates
+    implementation(libs.adapterdelegates.core)
+    implementation(libs.adapterdelegates.dsl)
+    implementation(libs.adapterdelegates.dsl.viewbinding)
+
+    //Coroutine Lifecycle Scopes
+    implementation(libs.lifecycleViewModel)
 }

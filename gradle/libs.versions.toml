@@ -1,4 +1,5 @@
 [versions]
+adapterdelegates4KotlinDslViewbinding = "4.3.2"
 agp = "8.11.2"
 kotlin = "2.2.20"
 coreKtx = "1.17.0"
@@ -22,7 +23,10 @@ adapterDelegatesVersion = "4.4.0"
 roomRuntime = "2.8.0"
 jetbrainsKotlinJvm = "2.2.20"
 
+adapterdelegates = "4.3.2"
+
 [libraries]
+adapterdelegates4-kotlin-dsl-viewbinding = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref = "adapterdelegates4KotlinDslViewbinding" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -57,7 +61,10 @@ koinCore = { group = "io.insert-koin", name = "koin-core", version.ref = "koinVe
 koinAndroid = { group = "io.insert-koin", name = "koin-android", version.ref = "koinVersion" }
 
 #AdapterDelegates
-adapterDelegates = { group = "com.hannesdorfmann", name = "adapterdelegates4-kotlin-dsl", version.ref = "adapterDelegatesVersion" }
+adapterdelegates-core = { module = "com.hannesdorfmann:adapterdelegates4", version.ref = "adapterdelegates" }
+adapterdelegates-dsl = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl", version.ref = "adapterdelegates" }
+#noinspection SimilarGradleDependency
+adapterdelegates-dsl-viewbinding = { module = "com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding", version.ref = "adapterdelegates" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
