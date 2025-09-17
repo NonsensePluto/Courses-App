@@ -4,7 +4,7 @@ data class CourseModel(
     val id: Int,
     val title: String,
     val text: String,
-    val price: Int,
+    val price: String,
     val rate: Double,
     val startDate: String,
     val hasLike: Boolean,
