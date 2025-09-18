@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         if(savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(
-                    R.id.fragmentContainer,
+                    R.id.mainContainer,
                     LoginScreen()
                 )
                 .commit()

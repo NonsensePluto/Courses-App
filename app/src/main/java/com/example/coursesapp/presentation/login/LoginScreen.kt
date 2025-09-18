@@ -11,7 +11,7 @@ import com.example.coursesapp.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.coursesapp.databinding.LoginScreenBinding
 import androidx.core.net.toUri
-import com.example.coursesapp.presentation.mainscreen.MainScreen
+import com.example.coursesapp.presentation.bottomnavigation.BottomNavigation
 import com.example.coursesapp.presentation.navigation.navigate
 
 class LoginScreen() : Fragment(R.layout.login_screen) {
@@ -44,7 +44,7 @@ class LoginScreen() : Fragment(R.layout.login_screen) {
             }
             viewModel.login(binding?.etEmail?.text.toString(), binding?.etPassword?.text.toString())
 
-            navigate(parentFragmentManager, MainScreen(), false)
+            navigate(parentFragmentManager, BottomNavigation(), false)
         }
 
         binding?.btnVk?.setOnClickListener {
@@ -71,15 +71,6 @@ class LoginScreen() : Fragment(R.layout.login_screen) {
 
         binding?.btnLogin?.isEnabled = false
     }
-
-//    private fun loginButtonColor() {
-//        val enable = binding?.btnLogin?.isEnabled ?: false
-//        if (enable) {
-//            binding?.btnLogin?.setBackgroundResource(R.drawable.green_button_background)
-//        } else {
-//            binding?.btnLogin?.setBackgroundResource(R.drawable.login_button_background)
-//        }
-//    }
 
     private fun updateLoginButtonState() {
         val email = binding?.etEmail?.text?.toString()?.trim()

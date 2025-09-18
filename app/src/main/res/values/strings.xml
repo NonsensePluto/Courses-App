@@ -14,4 +14,5 @@
     <string name="saved_screen">Избранное</string>
     <string name="account_screen">Аккаунт</string>
     <string name="no_impl_yet">No impl yet</string>
+    <string name="filter">filter</string>
 </resources>

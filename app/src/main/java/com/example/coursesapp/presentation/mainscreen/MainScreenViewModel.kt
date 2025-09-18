@@ -32,4 +32,15 @@ class MainScreenViewModel(private val getAllCoursesUseCase: GetAllCoursesUseCase
             _loading.value = false
         }
     }
+
+    fun switchFavoriteStatus(course: CourseModel) {
+        val updatedList = _courses.value!!.map {
+            if (it.id == course.id) it.copy(hasLike = !it.hasLike) else it
+        }
+        _courses.value = updatedList
+    }
+
+    fun sortCoursesByDate() {
+        _courses.value = _courses.value?.sortedByDescending { it.publishDate }
+    }
 }

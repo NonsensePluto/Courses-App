@@ -3,6 +3,7 @@ package com.example.coursesapp.presentation.mainscreen
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.example.coursesapp.R
 import com.example.coursesapp.databinding.MainScreenBinding
@@ -10,7 +11,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.coursesapp.presentation.mainscreen.utils.CoursesAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 
-class MainScreenFragment() : Fragment(R.layout.home_screen) {
+class MainScreenFragment() : Fragment(R.layout.main_screen) {
 
     private val viewModel by viewModel<MainScreenViewModel>()
 
@@ -19,7 +20,9 @@ class MainScreenFragment() : Fragment(R.layout.home_screen) {
     private val coursesAdapter by lazy {
         CoursesAdapter(
             onDetailsClick = { course ->  },
-            onFavoriteClick = { course ->  }
+            onFavoriteClick = { course ->
+                viewModel.switchFavoriteStatus(course)
+            }
         )
     }
 
@@ -28,10 +31,12 @@ class MainScreenFragment() : Fragment(R.layout.home_screen) {
 
         binding = MainScreenBinding.bind(view)
 
-        val courses = viewModel.courses.value
+        setupRecyclerView()
+        setupListeners()
 
-        Log.d("MainScreen", courses.toString())
+    }
 
+    private fun setupRecyclerView() {
         binding?.rvCourses?.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = coursesAdapter
@@ -41,7 +46,12 @@ class MainScreenFragment() : Fragment(R.layout.home_screen) {
             coursesAdapter.items = list
             coursesAdapter.notifyDataSetChanged()
         }
+    }
 
+    private fun setupListeners() {
+        binding?.tvSortBy?.setOnClickListener {
+            viewModel.sortCoursesByDate()
+        }
     }
 
 }

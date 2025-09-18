@@ -27,6 +27,6 @@ fun openFragment(fragmentManager: FragmentManager, position: BottomNavigationPos
         BottomNavigationPosition.ACCOUNT -> AccountScreenFragment()
     }
 
-    navigate(fragmentManager, fragment, addToBackStack = false)
+    navigate(fragmentManager, fragment, containerId = R.id.fragmentContainer)
 }
 

@@ -89,8 +89,7 @@
             android:scaleType="center"
             android:src="@drawable/ic_save"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@android:color/white" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <!-- Название курса -->
         <TextView

@@ -7,25 +7,27 @@
     android:background="@color/dark"
     android:padding="24dp">
 
-    <!-- Search Bar -->
     <LinearLayout
         android:id="@+id/llSearchContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
         android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <SearchView
+            style="@style/CustomSearchView"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:background="@drawable/bg_edit_text"
-            android:queryHint="Search courses" />
-
+            android:enabled="false"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search courses..." />
 
 
         <ImageButton
@@ -34,26 +36,40 @@
             android:layout_height="48dp"
             android:layout_marginStart="12dp"
             android:background="@drawable/bg_edit_text"
-            android:contentDescription="filter"
-            android:src="@drawable/ic_filter"
-            app:tint="#666666" />
+            android:contentDescription="@string/filter"
+            android:enabled="false"
+            android:src="@drawable/ic_funnel"
+            app:tint="@color/white" />
 
     </LinearLayout>
 
-    <!-- Sort Text -->
-    <TextView
+
+    <LinearLayout
         android:id="@+id/tvSortBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:focusable="true"
-        android:text="По дате добавления ↑"
-        android:textColor="@color/green"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/llSearchContainer"
-        app:layout_constraintEnd_toEndOf="parent"
         android:clickable="true"
-        tools:ignore="HardcodedText" />
+        android:focusable="true"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llSearchContainer">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:text="По дате добавления"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_down_up"/>
+
+    </LinearLayout>
 
     <!-- Courses RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
@@ -68,8 +84,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSortBy"
         app:layout_constraintVertical_bias="0.0" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

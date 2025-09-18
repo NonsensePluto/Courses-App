@@ -28,7 +28,7 @@ fun courseAdapterDelegate(
 
             // избранное
             ibFavorite.setImageResource(
-                if (item.hasLike) R.drawable.save_icon_filled else R.drawable.save_icon
+                if (item.hasLike) R.drawable.ic_save_filled else R.drawable.ic_save
             )
 
             // клики

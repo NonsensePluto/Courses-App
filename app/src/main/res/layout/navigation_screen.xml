@@ -17,8 +17,8 @@
         android:layout_height="wrap_content"
         android:background="@color/dark_gray"
         android:elevation="4dp"
-        app:itemIconTint="@color/stroke"
-        app:itemTextColor="@color/stroke"
+        app:itemIconTint="@color/bottom_nav_item_color"
+        app:itemTextColor="@color/bottom_nav_text_color"
         app:menu="@menu/menu"/>
 
 </LinearLayout>
