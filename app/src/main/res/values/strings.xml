@@ -8,4 +8,10 @@
     <string name="noAccountTxt">Нету аккаунта? </string>
     <string name="registrationTxt">Регистрация</string>
     <string name="forgotPasswordTxt">Забыл пароль</string>
+    <string name="goToOk">Переход в одноклассники</string>
+    <string name="goToVk">Переход ВК</string>
+    <string name="main_screen">Главная</string>
+    <string name="saved_screen">Избранное</string>
+    <string name="account_screen">Аккаунт</string>
+    <string name="no_impl_yet">No impl yet</string>
 </resources>

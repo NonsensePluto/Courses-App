@@ -10,7 +10,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.coursesapp.presentation.mainscreen.utils.CoursesAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 
-class MainScreen() : Fragment(R.layout.main_screen) {
+class MainScreenFragment() : Fragment(R.layout.home_screen) {
 
     private val viewModel by viewModel<MainScreenViewModel>()
 

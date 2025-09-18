@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:background="@drawable/rounded_image_background"
+            android:background="@drawable/bg_rounded_image"
             android:clipToOutline="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="@drawable/glass_background"
+            android:background="@drawable/bg_glass"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="@id/ivCourseImage"
             app:layout_constraintStart_toStartOf="parent">
@@ -43,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:src="@drawable/star_fill" />
+                android:src="@drawable/ic_star_fill" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/glass_background"
+            android:background="@drawable/bg_glass"
             android:paddingHorizontal="12dp"
             android:paddingVertical="8dp"
             android:text="22 Мая 2024"
@@ -85,9 +85,9 @@
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@drawable/glass_background"
+            android:background="@drawable/bg_glass"
             android:scaleType="center"
-            android:src="@drawable/save_icon"
+            android:src="@drawable/ic_save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@android:color/white" />
@@ -175,7 +175,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:layout_marginStart="4dp"
-                    android:src="@drawable/arrow_icon" />
+                    android:src="@drawable/ic_arrow" />
 
             </LinearLayout>
         </LinearLayout>

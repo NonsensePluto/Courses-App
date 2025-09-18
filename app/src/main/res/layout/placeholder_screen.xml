@@ -36,7 +36,7 @@
         android:hint="@string/defaultEmailTxt"
         android:textColorHint="@color/hint_text_color"
         android:textColor="@color/white"
-        android:background="@drawable/edit_text_background"
+        android:background="@drawable/bg_edit_text"
         android:paddingHorizontal="16dp"
         android:inputType="textEmailAddress"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
         android:hint="@string/enterPasswordTxt"
         android:textColorHint="@color/hint_text_color"
         android:textColor="@color/white"
-        android:background="@drawable/edit_text_background"
+        android:background="@drawable/bg_edit_text"
         android:paddingHorizontal="16dp"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
-        android:background="@drawable/green_button_background"
+        android:background="@drawable/btn_bg_green"
         android:text="@string/loginTxt"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -147,12 +147,13 @@
         android:layout_marginTop="32dp">
 
         <ImageButton
-            android:background="@drawable/vk_button_background"
+            android:background="@drawable/btn_bg_vk"
             android:id="@+id/btnVk"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="56dp"
             android:layout_weight="1"
-            android:src="@drawable/vk_icon"
+            android:contentDescription="@string/goToVk"
+            android:src="@drawable/ic_vk"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -161,13 +162,14 @@
         <ImageButton
             android:id="@+id/btnOk"
             android:layout_width="0dp"
-            android:layout_height="40dp"
+            android:layout_height="56dp"
             android:layout_weight="1"
-            android:src="@drawable/ok_icon"
+            android:contentDescription="@string/goToOk"
+            android:src="@drawable/ic_ok"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:background="@drawable/ok_button_background"
+            android:background="@drawable/btn_bg_ok"
             android:layout_marginStart="8dp" />
 
     </LinearLayout>
