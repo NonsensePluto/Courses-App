@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.coursesapp"
+    namespace = "com.example.coursesapp.data"
     compileSdk = 36
 
     defaultConfig {
