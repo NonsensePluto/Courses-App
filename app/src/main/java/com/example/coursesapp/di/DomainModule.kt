@@ -1,6 +1,9 @@
 package com.example.coursesapp.di
 
 import com.example.coursesapp.domain.usecases.GetAllCoursesUseCase
+import com.example.coursesapp.domain.usecases.GetSavedCoursesUseCase
+import com.example.coursesapp.domain.usecases.InsertCourseUseCase
+import com.example.coursesapp.domain.usecases.IsCourseSavedUseCase
 import com.example.coursesapp.domain.usecases.LoginUseCase
 import com.example.coursesapp.domain.usecases.LoginWithOkUseCase
 import com.example.coursesapp.domain.usecases.LoginWithVkUseCase
@@ -27,6 +30,18 @@ val domainModule = module {
 
     factory<ToggleCourseSavedUseCase> {
         ToggleCourseSavedUseCase(repository = get())
+    }
+
+    factory<InsertCourseUseCase> {
+        InsertCourseUseCase(repository = get())
+    }
+
+    factory<IsCourseSavedUseCase> {
+        IsCourseSavedUseCase(repository = get())
+    }
+
+    factory<GetSavedCoursesUseCase> {
+        GetSavedCoursesUseCase(repository = get())
     }
 
 }

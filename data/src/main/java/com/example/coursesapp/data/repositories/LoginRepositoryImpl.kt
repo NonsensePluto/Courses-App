@@ -1,9 +1,9 @@
-package com.example.coursesapp.data.repository
+package com.example.coursesapp.data.repositories
 
 import com.example.coursesapp.data.mappers.UserDataToDomain
 import com.example.coursesapp.data.models.UserEntity
 import com.example.coursesapp.domain.models.UserModel
-import com.example.coursesapp.domain.repository.LoginRepository
+import com.example.coursesapp.domain.repositories.LoginRepository
 
 class LoginRepositoryImpl(private val userDataToDomain: UserDataToDomain) : LoginRepository {
 

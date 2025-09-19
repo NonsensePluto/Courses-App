@@ -1,4 +1,4 @@
-package com.example.coursesapp.domain.repository
+package com.example.coursesapp.domain.repositories
 
 import com.example.coursesapp.domain.models.CourseModel
 

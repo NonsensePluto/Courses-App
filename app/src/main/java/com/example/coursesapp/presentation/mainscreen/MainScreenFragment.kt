@@ -1,6 +1,7 @@
 package com.example.coursesapp.presentation.mainscreen
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.coursesapp.R
@@ -19,7 +20,7 @@ class MainScreenFragment() : Fragment(R.layout.main_fragment) {
         CoursesAdapter(
             onDetailsClick = { course -> },
             onFavoriteClick = { course ->
-                viewModel.switchFavoriteStatus(course)
+                viewModel.toggleSavedCourse(course)
             }
         )
     }

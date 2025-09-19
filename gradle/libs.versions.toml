@@ -20,7 +20,7 @@ coroutinesLifecycleVersion = "2.9.3"
 koinVersion = "4.1.1"
 adapterDelegatesVersion = "4.4.0"
 
-roomRuntime = "2.8.0"
+roomRuntime = "2.7.1"
 jetbrainsKotlinJvm = "2.2.20"
 
 adapterdelegates = "4.3.2"

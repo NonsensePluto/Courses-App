@@ -1,9 +1,9 @@
-package com.example.coursesapp.data.repository
+package com.example.coursesapp.data.repositories
 
 import com.example.coursesapp.data.mappers.CourseResponseToDomain
 import com.example.coursesapp.data.remote.datasource.CoursesRemoteDataSource
 import com.example.coursesapp.domain.models.CourseModel
-import com.example.coursesapp.domain.repository.CoursesRemoteRepository
+import com.example.coursesapp.domain.repositories.CoursesRemoteRepository
 
 class CoursesRemoteRepositoryImpl(
     private val coursesRemoteDataSource: CoursesRemoteDataSource,

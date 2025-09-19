@@ -1,17 +1,20 @@
 package com.example.coursesapp.di
 
+import androidx.room.Room
+import com.example.coursesapp.data.local.appdatabase.AppDatabase
+import com.example.coursesapp.data.local.dao.CourseDao
 import com.example.coursesapp.data.mappers.CourseDomainToEntity
 import com.example.coursesapp.data.mappers.CourseEntityToDomain
 import com.example.coursesapp.data.mappers.CourseResponseToDomain
 import com.example.coursesapp.data.mappers.UserDataToDomain
 import com.example.coursesapp.data.remote.api.CoursesApi
 import com.example.coursesapp.data.remote.datasource.CoursesRemoteDataSource
-import com.example.coursesapp.data.repository.CoursesLocalRepositoryImpl
-import com.example.coursesapp.data.repository.CoursesRemoteRepositoryImpl
-import com.example.coursesapp.data.repository.LoginRepositoryImpl
-import com.example.coursesapp.domain.repository.CoursesLocalRepository
-import com.example.coursesapp.domain.repository.CoursesRemoteRepository
-import com.example.coursesapp.domain.repository.LoginRepository
+import com.example.coursesapp.data.repositories.CoursesLocalRepositoryImpl
+import com.example.coursesapp.data.repositories.CoursesRemoteRepositoryImpl
+import com.example.coursesapp.data.repositories.LoginRepositoryImpl
+import com.example.coursesapp.domain.repositories.CoursesLocalRepository
+import com.example.coursesapp.domain.repositories.CoursesRemoteRepository
+import com.example.coursesapp.domain.repositories.LoginRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -35,8 +38,8 @@ val dataModule = module {
     single<CoursesLocalRepository> {
         CoursesLocalRepositoryImpl(
             dao = get(),
-            coursesEntityToDomain = get(),
             coursesDomainToEntity = get(),
+            coursesEntityToDomain = get()
         )
     }
 
@@ -87,4 +90,19 @@ val networkModule = module {
     }
 
     single<CoursesApi> { get<Retrofit>().create(CoursesApi::class.java) }
+}
+
+val databaseModule = module {
+
+    single<AppDatabase> {
+        Room.databaseBuilder(
+            get(),
+            AppDatabase::class.java,
+            "courses_app_database"
+        ).build()
+    }
+
+    single<CourseDao> {
+        get<AppDatabase>().courseDao()
+    }
 }

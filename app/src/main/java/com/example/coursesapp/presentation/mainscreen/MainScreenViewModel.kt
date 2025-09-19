@@ -6,9 +6,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.coursesapp.domain.models.CourseModel
 import com.example.coursesapp.domain.usecases.GetAllCoursesUseCase
+import com.example.coursesapp.domain.usecases.GetSavedCoursesUseCase
+import com.example.coursesapp.domain.usecases.InsertCourseUseCase
+import com.example.coursesapp.domain.usecases.IsCourseSavedUseCase
+import com.example.coursesapp.domain.usecases.ToggleCourseSavedUseCase
 import kotlinx.coroutines.launch
 
-class MainScreenViewModel(private val getAllCoursesUseCase: GetAllCoursesUseCase) : ViewModel() {
+class MainScreenViewModel(
+    private val getAllCoursesUseCase: GetAllCoursesUseCase,
+    private val insertCourseUseCase: InsertCourseUseCase,
+    private val toggleSavedCourseUseCase: ToggleCourseSavedUseCase,
+    private val getSavedCoursesUseCase: GetSavedCoursesUseCase
+) : ViewModel() {
 
     private val _courses = MutableLiveData<List<CourseModel>>()
     val courses: LiveData<List<CourseModel>> = _courses
@@ -21,23 +30,35 @@ class MainScreenViewModel(private val getAllCoursesUseCase: GetAllCoursesUseCase
 
     init {
         viewModelScope.launch {
-            getAllCourses()
+            loadAndMergeCourses()
         }
     }
 
-    fun getAllCourses() {
+    fun loadAndMergeCourses() {
         viewModelScope.launch {
             _loading.value = true
-            _courses.value = getAllCoursesUseCase()
-            _loading.value = false
+            val allCourses = getAllCoursesUseCase()
+            val savedCourses = getSavedCoursesUseCase()
+            val mergedCourses = allCourses.map { course ->
+                course.copy(hasLike = savedCourses.any { it.id == course.id })
+            }
+            _courses.value = mergedCourses
+
+            val toInsert = mergedCourses.filter { it.hasLike && !savedCourses.contains(it) }
+            if (toInsert.isNotEmpty()) {
+                toInsert.forEach { insertCourseUseCase(it) }
+            }
         }
     }
 
-    fun switchFavoriteStatus(course: CourseModel) {
-        val updatedList = _courses.value!!.map {
-            if (it.id == course.id) it.copy(hasLike = !it.hasLike) else it
+    fun toggleSavedCourse(course: CourseModel) {
+        viewModelScope.launch {
+            val updatedList = _courses.value!!.map {
+                if (it.id == course.id) it.copy(hasLike = !it.hasLike) else it
+            }
+            _courses.value = updatedList
+            toggleSavedCourseUseCase(course)
         }
-        _courses.value = updatedList
     }
 
     fun sortCoursesByDate() {

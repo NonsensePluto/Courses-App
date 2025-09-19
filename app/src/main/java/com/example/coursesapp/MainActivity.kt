@@ -2,6 +2,7 @@ package com.example.coursesapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.coursesapp.presentation.bottomnavigation.BottomNavigation
 import com.example.coursesapp.presentation.login.LoginScreen
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.mainContainer,
-                    LoginScreen()
+                    BottomNavigation()
                 )
                 .commit()
         }

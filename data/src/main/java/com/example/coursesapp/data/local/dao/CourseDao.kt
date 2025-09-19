@@ -15,6 +15,9 @@ interface CourseDao {
     @Delete
     suspend fun deleteCourse(course: CourseEntity)
 
+    @Query("SELECT * FROM course_table")
+    suspend fun getSavedCourses(): List<CourseEntity>
+
     @Query("SELECT EXISTS(SELECT * FROM course_table WHERE id = :courseId)")
     suspend fun isCourseSaved(courseId: Int): Boolean
 }
