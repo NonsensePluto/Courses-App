@@ -1,21 +1,19 @@
 package com.example.coursesapp.presentation.mainscreen
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.example.coursesapp.R
-import com.example.coursesapp.databinding.MainScreenBinding
+import com.example.coursesapp.databinding.MainFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.example.coursesapp.presentation.mainscreen.utils.CoursesAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 
-class MainScreenFragment() : Fragment(R.layout.main_screen) {
+class MainScreenFragment() : Fragment(R.layout.main_fragment) {
 
     private val viewModel by viewModel<MainScreenViewModel>()
 
-    private var binding: MainScreenBinding? = null
+    private var binding: MainFragmentBinding? = null
 
     private val coursesAdapter by lazy {
         CoursesAdapter(
@@ -29,8 +27,9 @@ class MainScreenFragment() : Fragment(R.layout.main_screen) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding = MainScreenBinding.bind(view)
+        binding = MainFragmentBinding.bind(view)
 
+        setupSearchView()
         setupRecyclerView()
         setupListeners()
 
@@ -52,6 +51,10 @@ class MainScreenFragment() : Fragment(R.layout.main_screen) {
         binding?.tvSortBy?.setOnClickListener {
             viewModel.sortCoursesByDate()
         }
+    }
+
+    private fun setupSearchView() {
+        binding?.searchView?.isEnabled = false
     }
 
 }

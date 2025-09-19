@@ -53,8 +53,9 @@ val networkModule = module {
     }
 
     single<Retrofit> {
+        val BASE_URL = "https://drive.usercontent.google.com/u/0/"
         Retrofit.Builder()
-            .baseUrl("https://drive.usercontent.google.com/u/0/")
+            .baseUrl(BASE_URL)
             .client(get())
             .addConverterFactory(GsonConverterFactory.create())
             .build()

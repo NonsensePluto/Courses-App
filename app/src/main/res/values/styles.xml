@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="CustomSearchView" parent="Widget.AppCompat.SearchView">
-        <item name="android:textColor">@android:color/white</item>
-
-
-        <item name="android:textColorHint">@android:color/darker_gray</item>
-
-        <item name="queryBackground">@android:color/transparent</item>
-        <item name="android:tint">@android:color/white</item>
+        <item name="searchIcon">@drawable/ic_search</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/stroke</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:background">@drawable/bg_text_field</item>
+        <item name="android:enabled">false</item>
     </style>
 </resources>

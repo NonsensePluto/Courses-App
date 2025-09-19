@@ -20,7 +20,6 @@ fun courseAdapterDelegate(
             tvPrice.text = item.price
             tvDate.text = item.publishDate
 
-            // рейтинг
             (tvRating.getChildAt(1) as? TextView)?.text = item.rate.toString()
 
             // картинка (пока у CourseModel её нет → можно добавить поле imageUrl в domain, если планируется)
