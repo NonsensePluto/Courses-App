@@ -22,15 +22,13 @@ fun courseAdapterDelegate(
 
             (tvRating.getChildAt(1) as? TextView)?.text = item.rate.toString()
 
-            // картинка (пока у CourseModel её нет → можно добавить поле imageUrl в domain, если планируется)
-//            ivCourseImage.setImageResource(com.example.coursesapp.R.drawable.)
 
-            // избранное
+            ivCourseImage.setImageResource(R.drawable.img_courses_placeholder)
+
             ibFavorite.setImageResource(
                 if (item.hasLike) R.drawable.ic_save_filled else R.drawable.ic_save
             )
 
-            // клики
             btnDetails.setOnClickListener { onDetailsClick(item) }
             ibFavorite.setOnClickListener { onFavoriteClick(item) }
         }

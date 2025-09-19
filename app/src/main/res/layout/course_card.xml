@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
     android:backgroundTint="@color/dark_gray"
     app:cardCornerRadius="12dp"
@@ -12,20 +11,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
 
         <!-- Изображение курса -->
         <ImageView
             android:id="@+id/ivCourseImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
             android:background="@drawable/bg_rounded_image"
             android:clipToOutline="true"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
 
         <!-- Рейтинг -->
@@ -89,7 +88,7 @@
             android:scaleType="center"
             android:src="@drawable/ic_save"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Название курса -->
         <TextView
@@ -114,14 +113,16 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
+            android:ellipsize="end"
             android:lineSpacingMultiplier="1.2"
+            android:maxLines="2"
             android:text="Освойте backend-разработку\nи программирование на Java, фреймворки..."
             android:textColor="#999999"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/llBottomContainer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle"
-            app:layout_constraintBottom_toTopOf="@+id/llBottomContainer"
             tools:ignore="HardcodedText" />
 
         <!-- Контейнер для цены и кнопки -->
@@ -139,28 +140,31 @@
             app:layout_constraintTop_toBottomOf="@id/tvDescription">
 
 
-            <!-- Кнопка "Подробнее" -->
-
             <TextView
                 android:id="@+id/tvPrice"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="999 ₽"
+                android:text="999"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:drawableEndCompat="@drawable/ic_ruble"
                 tools:ignore="HardcodedText" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
             <LinearLayout
                 android:id="@+id/btnDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="4dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -174,7 +178,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:layout_marginStart="4dp"
-                    android:src="@drawable/ic_arrow" />
+                    android:src="@drawable/ic_outline_arrow" />
 
             </LinearLayout>
         </LinearLayout>

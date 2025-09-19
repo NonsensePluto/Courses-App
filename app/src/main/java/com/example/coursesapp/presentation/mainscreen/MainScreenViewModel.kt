@@ -34,6 +34,7 @@ class MainScreenViewModel(
         }
     }
 
+
     fun loadAndMergeCourses() {
         viewModelScope.launch {
             _loading.value = true
@@ -48,6 +49,8 @@ class MainScreenViewModel(
             if (toInsert.isNotEmpty()) {
                 toInsert.forEach { insertCourseUseCase(it) }
             }
+
+            _loading.value = false
         }
     }
 

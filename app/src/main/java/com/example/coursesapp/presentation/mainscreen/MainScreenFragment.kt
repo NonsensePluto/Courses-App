@@ -51,6 +51,10 @@ class MainScreenFragment() : Fragment(R.layout.main_fragment) {
         binding?.tvSortBy?.setOnClickListener {
             viewModel.sortCoursesByDate()
         }
+
+        viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
+            binding?.pbLoading?.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
     }
 
 }

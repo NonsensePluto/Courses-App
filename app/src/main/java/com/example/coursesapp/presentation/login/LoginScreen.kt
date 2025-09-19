@@ -38,13 +38,10 @@ class LoginScreen() : Fragment(R.layout.login_screen) {
 
     private fun setupListeners() {
         binding?.btnLogin?.setOnClickListener {
-            if (!isEmailValid()) {
-                Toast.makeText(requireContext(), "Invalid email format", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            viewModel.login(binding?.etEmail?.text.toString(), binding?.etPassword?.text.toString())
 
+            viewModel.login(binding?.etEmail?.text.toString(), binding?.etPassword?.text.toString())
             navigate(parentFragmentManager, BottomNavigation(), false)
+
         }
 
         binding?.btnVk?.setOnClickListener {
@@ -76,7 +73,7 @@ class LoginScreen() : Fragment(R.layout.login_screen) {
         val email = binding?.etEmail?.text?.toString()?.trim()
         val password = binding?.etPassword?.text?.toString()?.trim()
 
-        val isFormValid = !email.isNullOrEmpty() && !password.isNullOrEmpty()
+        val isFormValid = !email.isNullOrEmpty() && !password.isNullOrEmpty() && isEmailValid()
         binding?.btnLogin?.isEnabled = isFormValid
     }
 
