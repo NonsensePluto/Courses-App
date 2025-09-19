@@ -18,7 +18,14 @@ class LoginViewModel(
     val urlString: LiveData<String> get() = _urlString
 
 
-    fun login(email: String, password: String): UserModel = loginUseCase(email, password)
+    //Сохраняю пользователя без пароля, можно использовать потом, например для отображения на экране "Аккаунт"
+    private val _userModel = MutableLiveData<UserModel>()
+    val userModel: LiveData<UserModel> get() = _userModel
+
+    fun login(email: String, password: String) {
+        val user = loginUseCase(email, password)
+        _userModel.value = user
+    }
 
     fun loginWithVk() {
         _urlString.value = loginWithVkUseCase()

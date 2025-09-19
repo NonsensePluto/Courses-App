@@ -8,11 +8,10 @@ import com.example.coursesapp.domain.models.CourseModel
 import com.example.coursesapp.domain.usecases.GetAllCoursesUseCase
 import com.example.coursesapp.domain.usecases.GetSavedCoursesUseCase
 import com.example.coursesapp.domain.usecases.InsertCourseUseCase
-import com.example.coursesapp.domain.usecases.IsCourseSavedUseCase
 import com.example.coursesapp.domain.usecases.ToggleCourseSavedUseCase
 import kotlinx.coroutines.launch
 
-class MainScreenViewModel(
+class MainViewModel(
     private val getAllCoursesUseCase: GetAllCoursesUseCase,
     private val insertCourseUseCase: InsertCourseUseCase,
     private val toggleSavedCourseUseCase: ToggleCourseSavedUseCase,
@@ -35,22 +34,30 @@ class MainScreenViewModel(
     }
 
 
+    //Объединяю, то что приходит из апи и то что есть на устройстве в одно, потому что из сети тоже может прийти hasLike = true
     fun loadAndMergeCourses() {
         viewModelScope.launch {
-            _loading.value = true
-            val allCourses = getAllCoursesUseCase()
-            val savedCourses = getSavedCoursesUseCase()
-            val mergedCourses = allCourses.map { course ->
-                course.copy(hasLike = savedCourses.any { it.id == course.id })
-            }
-            _courses.value = mergedCourses
 
-            val toInsert = mergedCourses.filter { it.hasLike && !savedCourses.contains(it) }
-            if (toInsert.isNotEmpty()) {
-                toInsert.forEach { insertCourseUseCase(it) }
-            }
+            try {
+                _loading.value = true
+                val allCourses = getAllCoursesUseCase()
+                val savedCourses = getSavedCoursesUseCase()
+                val mergedCourses = allCourses.map { course ->
+                    course.copy(hasLike = savedCourses.any { it.id == course.id })
+                }
+                _courses.value = mergedCourses
 
-            _loading.value = false
+                val toInsert = mergedCourses.filter { it.hasLike && !savedCourses.contains(it) }
+                if (toInsert.isNotEmpty()) {
+                    toInsert.forEach { insertCourseUseCase(it) }
+                }
+
+                _loading.value = false
+
+            } catch (e: Exception) {
+                _error.value = e.message
+                _loading.value = false
+            }
         }
     }
 

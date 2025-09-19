@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark"
-    android:padding="24dp">
+    android:padding="@dimen/large_dimen">
 
     <LinearLayout
         android:id="@+id/llSearchContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/medium_dimen"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,7 @@
         <SearchView
             android:id="@+id/search_view"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/search_field_height"
             android:layout_weight="1"
             android:iconifiedByDefault="false"
             android:queryHint="Search courses..."
@@ -31,9 +31,9 @@
 
         <ImageButton
             android:id="@+id/ibFilter"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="12dp"
+            android:layout_width="@dimen/filter_button_size"
+            android:layout_height="@dimen/filter_button_size"
+            android:layout_marginStart="@dimen/filter_button_margin"
             android:background="@drawable/bg_search_view"
             android:contentDescription="@string/filter"
             android:enabled="false"
@@ -47,7 +47,7 @@
         android:id="@+id/tvSortBy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/large_dimen"
         android:clickable="true"
         android:focusable="true"
         android:orientation="horizontal"
@@ -60,7 +60,7 @@
             android:focusable="true"
             android:text="По дате добавления"
             android:textColor="@color/green"
-            android:textSize="16sp"
+            android:textSize="@dimen/login_label_text_size"
             tools:ignore="HardcodedText" />
 
         <ImageView
@@ -75,8 +75,8 @@
         android:id="@+id/rvCourses"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/medium_dimen"
+        android:layout_marginBottom="@dimen/medium_dimen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -89,8 +89,8 @@
         <ProgressBar
             android:id="@+id/pbLoading"
             style="?android:attr/progressBarStyleLarge"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
+            android:layout_width="@dimen/progress_bar_size"
+            android:layout_height="@dimen/progress_bar_size"
             android:layout_gravity="center"
             android:indeterminate="true"
             app:layout_constraintTop_toTopOf="parent"

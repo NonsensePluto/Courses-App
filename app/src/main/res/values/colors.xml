@@ -11,5 +11,6 @@
     <color name="light_gray">#FF32333A</color>
     <color name="hint_text_color">#FF666666</color>
     <color name="stroke">#FF4D555E</color>
-    <color name="glass">#32333A4D</color>
+    <color name="glass">#6D32333A</color>
+    <color name="subtitle_text">#FF999999</color>
 </resources>

@@ -1,7 +1,7 @@
 package com.example.coursesapp.di
 
 import com.example.coursesapp.presentation.login.LoginViewModel
-import com.example.coursesapp.presentation.mainscreen.MainScreenViewModel
+import com.example.coursesapp.presentation.mainscreen.MainViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
@@ -15,8 +15,8 @@ val appModule = module {
         )
     }
 
-    viewModel<MainScreenViewModel> {
-        MainScreenViewModel(
+    viewModel<MainViewModel> {
+        MainViewModel(
             getAllCoursesUseCase = get(),
             insertCourseUseCase = get(),
             toggleSavedCourseUseCase = get(),
