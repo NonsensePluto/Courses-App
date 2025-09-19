@@ -1,6 +1,11 @@
-package com.example.coursesapp.domain.models
+package com.example.coursesapp.data.local.entities
 
-data class CourseModel(
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "course_table")
+data class CourseEntity(
+    @PrimaryKey(autoGenerate = true)
     val id: Int,
     val title: String,
     val text: String,

@@ -1,10 +1,10 @@
 package com.example.coursesapp.data.mappers
 
-import com.example.coursesapp.data.remote.models.CourseResponse
+import com.example.coursesapp.data.local.entities.CourseEntity
 import com.example.coursesapp.domain.models.CourseModel
 
-class CourseResponseToDomain {
-    operator fun invoke(course: CourseResponse) = CourseModel(
+class CourseDomainToEntity {
+    operator fun invoke(course: CourseModel) = CourseEntity(
         id = course.id,
         title = course.title,
         text = course.text,
@@ -13,6 +13,6 @@ class CourseResponseToDomain {
         startDate = course.startDate,
         hasLike = course.hasLike,
         publishDate =course.publishDate,
-        imageUrl = null
+        imageUrl = course.imageUrl
     )
 }

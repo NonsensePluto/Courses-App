@@ -17,7 +17,7 @@ class MainScreenFragment() : Fragment(R.layout.main_fragment) {
 
     private val coursesAdapter by lazy {
         CoursesAdapter(
-            onDetailsClick = { course ->  },
+            onDetailsClick = { course -> },
             onFavoriteClick = { course ->
                 viewModel.switchFavoriteStatus(course)
             }
@@ -29,7 +29,6 @@ class MainScreenFragment() : Fragment(R.layout.main_fragment) {
 
         binding = MainFragmentBinding.bind(view)
 
-        setupSearchView()
         setupRecyclerView()
         setupListeners()
 
@@ -51,10 +50,6 @@ class MainScreenFragment() : Fragment(R.layout.main_fragment) {
         binding?.tvSortBy?.setOnClickListener {
             viewModel.sortCoursesByDate()
         }
-    }
-
-    private fun setupSearchView() {
-        binding?.searchView?.isEnabled = false
     }
 
 }

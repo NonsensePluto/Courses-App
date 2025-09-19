@@ -1,11 +1,15 @@
 package com.example.coursesapp.di
 
+import com.example.coursesapp.data.mappers.CourseDomainToEntity
+import com.example.coursesapp.data.mappers.CourseEntityToDomain
 import com.example.coursesapp.data.mappers.CourseResponseToDomain
 import com.example.coursesapp.data.mappers.UserDataToDomain
 import com.example.coursesapp.data.remote.api.CoursesApi
 import com.example.coursesapp.data.remote.datasource.CoursesRemoteDataSource
+import com.example.coursesapp.data.repository.CoursesLocalRepositoryImpl
 import com.example.coursesapp.data.repository.CoursesRemoteRepositoryImpl
 import com.example.coursesapp.data.repository.LoginRepositoryImpl
+import com.example.coursesapp.domain.repository.CoursesLocalRepository
 import com.example.coursesapp.domain.repository.CoursesRemoteRepository
 import com.example.coursesapp.domain.repository.LoginRepository
 import okhttp3.OkHttpClient
@@ -16,6 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val dataModule = module {
 
+    //Repositories
     single<LoginRepository> {
         LoginRepositoryImpl(userDataToDomain = get())
     }
@@ -27,6 +32,15 @@ val dataModule = module {
         )
     }
 
+    single<CoursesLocalRepository> {
+        CoursesLocalRepositoryImpl(
+            dao = get(),
+            coursesEntityToDomain = get(),
+            coursesDomainToEntity = get(),
+        )
+    }
+
+    //Mappers
     factory<UserDataToDomain> {
         UserDataToDomain()
     }
@@ -35,12 +49,24 @@ val dataModule = module {
         CourseResponseToDomain()
     }
 
+    factory<CourseEntityToDomain>  {
+        CourseEntityToDomain()
+    }
+
+    factory<CourseDomainToEntity> {
+        CourseDomainToEntity()
+    }
+
+    //DataSource
     single<CoursesRemoteDataSource> {
         CoursesRemoteDataSource(api = get())
     }
+
+
 }
 
 val networkModule = module {
+    val BASE_URL = "https://drive.usercontent.google.com/u/0/"
 
     single<HttpLoggingInterceptor> {
         HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
@@ -53,7 +79,6 @@ val networkModule = module {
     }
 
     single<Retrofit> {
-        val BASE_URL = "https://drive.usercontent.google.com/u/0/"
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(get())

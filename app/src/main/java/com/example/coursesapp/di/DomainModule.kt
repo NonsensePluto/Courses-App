@@ -4,6 +4,7 @@ import com.example.coursesapp.domain.usecases.GetAllCoursesUseCase
 import com.example.coursesapp.domain.usecases.LoginUseCase
 import com.example.coursesapp.domain.usecases.LoginWithOkUseCase
 import com.example.coursesapp.domain.usecases.LoginWithVkUseCase
+import com.example.coursesapp.domain.usecases.ToggleCourseSavedUseCase
 import org.koin.dsl.module
 
 val domainModule = module {
@@ -22,6 +23,10 @@ val domainModule = module {
 
     factory<GetAllCoursesUseCase> {
         GetAllCoursesUseCase(repository = get())
+    }
+
+    factory<ToggleCourseSavedUseCase> {
+        ToggleCourseSavedUseCase(repository = get())
     }
 
 }
